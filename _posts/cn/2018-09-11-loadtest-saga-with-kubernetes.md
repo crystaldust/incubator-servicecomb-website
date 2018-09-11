@@ -1,3 +1,17 @@
+---
+title: "使用Kubernetes对Saga进行压力测试"
+lang: cn
+ref: loadtest-saga-with-kubernetes
+permalink: /cn/docs/loadtest-saga-with-kubernetes
+excerpt: "如何使用Kubernetes方便的对Saga进行性能测试"
+last_modified_at: 2018-09-11T10:26:28+08:00
+author: Zhen Ju
+tags: [microservice, servicemesh, saga]
+redirect_from:
+  - /theme-setup/
+---
+
+## 使用Kubernetes对Saga进行压力测试
 
 Apache ServiceComb (incubating) Saga 是一个微服务应用的数据最终一致性解决方案。Saga在try阶段直接提交事务，后续rollback阶段则通过反向的补偿操作来完成。
 
