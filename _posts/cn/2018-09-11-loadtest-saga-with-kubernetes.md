@@ -29,21 +29,13 @@ Apache ServiceComb (incubating) Saga 是一个微服务应用的数据最终一�
 
 ### "Kubernetize"服务
 
-我们的demo项目由Java编写、maven作为依赖管理工具，在项目中引入了fabric8插件，编译程序时可以顺便将jar包构建成docker镜像。首先，我们构建alpha-server镜像：
+我们的demo项目由Java编写、maven作为依赖管理工具，在项目中引入了fabric8插件，编译程序时可以顺便将jar包构建成docker镜像。
+首先，我们构建alpha-server镜像和demo镜像：
 
 ```bash
-$ cd alpha/alpha-server
+$ git clone https://github.com/apache/incubator-servicecomb-saga.git
+$ cd incubator-servicecomb-saga
 $ mvn clean install -Pdocker
-```
-
-然后进入demo项目路径`saga-demo/saga-spring-demo`，执行相同的maven构建命令，构建完成后，我们可以看到产生了4个相关镜像：
-
-```bash
-$ docker images | grep SNAPHOST  # {version}-SNAPSHOT是构建过程中使用的镜像标签
-alpha-server:0.3.0-SNAPSHOT
-booking:0.3.0-SNAPSHOT
-car:0.3.0-SNAPSHOT
-hotel:0.3.0-SNAPSHOT
 ```
 
 至此，我们已经构建好所需镜像，下一步便是编写Kubernetes所需的资源文件，这一步我们不再赘述，项目中已经有写好的yaml文件，路径在`saga-demo/saga-k8s-resources`，目录结构如下：
